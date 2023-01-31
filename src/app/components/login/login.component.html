@@ -1,0 +1,23 @@
+<form (submit)="submit()" class="mb-5">
+  <div class="form-group col-lg-4">
+    <label for="email">Email</label>
+    <input type="text"
+           class="form-control"
+           id="email"
+           [(ngModel)]="loginRequest.email"
+           name="email"
+           [ngModelOptions]="{standalone: false}"
+           placeholder="Email"
+    >
+    <label for="password">Password</label>
+    <input type="password"
+           class="form-control"
+           id="password"
+           [(ngModel)]="loginRequest.password"
+           name="password"
+           [ngModelOptions]="{standalone: false}"
+           placeholder="Password"
+    >
+  </div>
+  <button style="margin-top: 10px" type="submit" class="btn btn-primary">Submit</button>
+</form>

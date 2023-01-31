@@ -1,0 +1,66 @@
+<form (submit)="submit()" [formGroup]="createUserForm" class="mb-5">
+  <div class="form-group col-lg-4">
+    <label for="firstName">First name</label>
+    <input type="text" class="form-control" id="firstName" [formControlName]="'firstName'" name="firstName">
+    <div class="error-message text-danger" *ngIf="createUserForm.get('firstName')?.errors?.['required']"> First name is required! </div>
+
+  </div>
+  <div class="form-group col-lg-4">
+    <label for="lastName">Last name</label>
+    <input type="text" class="form-control" id="lastName" [formControlName]="'lastName'" name="lastName">
+    <div class="error-message text-danger" *ngIf="createUserForm.get('lastName')?.errors?.['required']"> Last name is required! </div>
+
+  </div>
+  <div class="form-group col-lg-4">
+    <label for="email">Email</label>
+    <input type="text" class="form-control" id="email" [formControlName]="'email'" name="email">
+    <div class="error-message text-danger" *ngIf="createUserForm.get('email')?.errors?.['required']"> Email is required! </div>
+  </div>
+  <div class="form-group col-lg-4">
+    <label for="password">Password</label>
+    <input type="password" class="form-control" id="password" [formControlName]="'password'" name="email">
+    <div class="error-message text-danger" *ngIf="createUserForm.get('password')?.errors?.['required']"> Password is required! </div>
+  </div>
+  <h4>Permissions:</h4>
+  <div class="form-group col-lg-4">
+    <label for="canCreate">Can create other users</label>
+    <input style="margin-left: 5px" type="checkbox" class="form-check-input" id="canCreate"  (change)="toggleCanCreateUsers()">
+  </div>
+  <div class="form-group col-lg-4">
+    <label for="canRead">Can read other users</label>
+    <input style="margin-left: 5px" type="checkbox" class="form-check-input" id="canRead"  (change)="toggleCanReadUsers()">
+  </div>
+  <div class="form-group col-lg-4">
+    <label for="canUpdate" >Can update other users</label>
+    <input style="margin-left: 5px" type="checkbox" class="form-check-input" id="canUpdate"  (change)="toggleCanUpdateUsers()">
+  </div>
+  <div class="form-group col-lg-4">
+    <label for="canDelete">Can delete other users</label>
+    <input style="margin-left: 5px" type="checkbox" class="form-check-input" id="canDelete"  (change)="toggleCanDeleteUsers()">
+  </div>
+  <div class="form-group col-lg-4">
+    <label for="canSearchMachine">Can search machines</label>
+    <input style="margin-left: 5px" type="checkbox" class="form-check-input" id="canSearchMachine"  (change)="toggleCanSearchMachines()">
+  </div>
+  <div class="form-group col-lg-4">
+    <label for="canStartMachine">Can start machines</label>
+    <input style="margin-left: 5px" type="checkbox" class="form-check-input" id="canStartMachine"  (change)="toggleCanStartMachines()">
+  </div>
+  <div class="form-group col-lg-4">
+    <label for="canStopMachine">Can stop machines</label>
+    <input style="margin-left: 5px" type="checkbox" class="form-check-input" id="canStopMachine"  (change)="toggleCanStopMachines()">
+  </div>
+  <div class="form-group col-lg-4">
+    <label for="canRestartMachine">Can restart machines</label>
+    <input style="margin-left: 5px" type="checkbox" class="form-check-input" id="canRestartMachine"  (change)="toggleCanRestartMachines()">
+  </div>
+  <div class="form-group col-lg-4">
+    <label for="canCreateMachine">Can create machines</label>
+    <input style="margin-left: 5px" type="checkbox" class="form-check-input" id="canCreateMachine"  (change)="toggleCanCreateMachines()">
+  </div>
+  <div class="form-group col-lg-4">
+    <label for="canDestroyhMachine">Can destroy machines</label>
+    <input style="margin-left: 5px" type="checkbox" class="form-check-input" id="canDestroyhMachine"  (change)="toggleCanDestroyMachines()">
+  </div>
+  <button style="margin-top: 10px" type="submit" class="btn btn-primary">Create</button>
+</form>

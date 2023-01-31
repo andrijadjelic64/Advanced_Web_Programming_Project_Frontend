@@ -1,0 +1,47 @@
+<button *ngIf="this.canCreateMachines" (click)="create()">NEW MACHINE</button>
+
+<form (submit)="search()" [formGroup]="searchForm" class="mb-5">
+  <div class="form-group col-lg-4">
+    <label for="machineName">Machine name</label>
+    <input type="text" class="form-control" id="machineName" [formControlName]="'name'" name="machineName">
+  </div>
+  <div class="form-group col-lg-4">
+    <label for="status">Status</label>
+    <input type="text" class="form-control" id="status" [formControlName]="'status'" name="status">
+  </div>
+  <button style="margin-top: 10px" type="submit" class="btn btn-primary">Search</button>
+</form>
+<div *ngIf="allMachineResponse">
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Status</th>
+      <th>Active</th>
+    </tr>
+    <tr *ngFor="let machine of allMachineResponse; let i = index;">
+      <td>{{machine.machineId}}</td>
+      <td>{{machine.name}}</td>
+      <td>{{machine.status}}</td>
+      <td>{{machine.active}}</td>
+
+      <td>
+        <button *ngIf="this.canStartMachines" (click)="start(machine.machineId)">START</button>
+      </td>
+      <td>
+        <button *ngIf="this.canStopMachines" (click)="stop(machine.machineId)">STOP</button>
+      </td>
+      <td>
+        <button *ngIf="this.canRestartMachines" (click)="restart(machine.machineId)">RESTART</button>
+      </td>
+      <td>
+        <button *ngIf="this.canDestroyMachines" (click)="destroy(machine.machineId)">DESTROY</button>
+      </td>
+      <td>
+        <button *ngIf="this.canDestroyMachines" (click)="schedule(machine)">SCHEDULE</button>
+      </td>
+    </tr>
+  </table>
+</div>
+
+

@@ -1,0 +1,37 @@
+<div class="machine-info mt-5">
+  <h4>Name: {{this.selectedMachine.name}}</h4>
+  <h4>Active: {{this.selectedMachine.active}}</h4>
+  <h4>Status: {{this.selectedMachine.status}}</h4>
+</div>
+<div class="scheduler-box mt-5">
+  <h5>Scheduler start</h5>
+  <form [formGroup]="schedulerStartForm" (submit)="scheduleStart()" class="mb-5">
+    <div class="form-group col-lg-4">
+      <label for="date-input-start" class="form-label">Date</label>
+      <input [formControlName]="'date'" type="datetime-local" class="form-control" id="date-input-start">
+    </div>
+    <button type="submit" class="btn btn-success">Schedule</button>
+  </form>
+</div>
+
+<div class="scheduler-box mt-5">
+  <h5>Scheduler stop</h5>
+  <form [formGroup]="schedulerStopForm" (submit)="scheduleStop()" class="mb-5">
+    <div class="form-group col-lg-4">
+      <label for="date-input-stop" class="form-label">Date</label>
+      <input [formControlName]="'date'" type="datetime-local" class="form-control" id="date-input-stop">
+    </div>
+    <button type="submit" class="btn btn-success">Schedule</button>
+  </form>
+</div>
+
+<div class="scheduler-box mt-5">
+  <h5>Scheduler restart</h5>
+  <form [formGroup]="schedulerRestartForm" (submit)="scheduleRestart()" class="mb-5">
+    <div class="form-group col-lg-4">
+      <label for="date-input-restart" class="form-label">Date</label>
+      <input [formControlName]="'date'" type="datetime-local" class="form-control" id="date-input-restart">
+    </div>
+    <button type="submit" class="btn btn-success">Schedule</button>
+  </form>
+</div>

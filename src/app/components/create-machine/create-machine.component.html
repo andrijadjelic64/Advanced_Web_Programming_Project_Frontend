@@ -1,0 +1,13 @@
+<form (submit)="submit()" [formGroup]="createMachineForm" class="mb-5">
+  <div class="form-group col-lg-4">
+    <label for="machineName">Name of machine</label>
+    <input type="text" class="form-control" id="machineName" [formControlName]="'name'" name="machineName">
+    <div class="error-message text-danger" *ngIf="createMachineForm.get('name')?.errors?.['required']"> Name of machine is required! </div>
+
+  </div>
+  <div class="form-group col-lg-4">
+    <label for="active">Active:</label>
+    <input style="margin-left: 5px" type="checkbox" class="form-check-input" id="active"  (change)="toggleActive()">
+  </div>
+  <button style="margin-top: 10px" type="submit" class="btn btn-primary">Create</button>
+</form>
